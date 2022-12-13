@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+
+.flex{
+    display: flex;
+}
+
+.input {
+    width: 20vw;
+    border: none;
+    font-family: var(--font-family);
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 15px;
+    margin: 10px;
+    background-color: var(--secondary-color);
+    color: var(--fourth-color);
+    box-shadow: var(--box-shadow);
+    font-size: 18px;
+
+}
+
+.short_input {
+    width: 8vw;
+}
+
+.btn {
+    font-family: var(--font-family);
+    font-weight: 700;
+    background-color: var(--fourth-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    width: 21.5vw;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    color: var(--fourth-color);
+    background-color: var(--secondary-color);
+
+}
+
+.loader{
+    margin: 20px;
+}

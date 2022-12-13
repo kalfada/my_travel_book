@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--secondary-color);
+    height: 60px;
+}
+
+.logo{
+    color: var(--fourth-color);
+    font-weight: 900;
+    font-size: 30px;
+    cursor: pointer;
+}
