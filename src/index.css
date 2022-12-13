@@ -14,12 +14,6 @@ body{
   background-color: var(--primary-color);
 }
 
-
-
-body::-webkit-scrollbar{
-  display: none;
-}
-
 * {
   font-family: 'Murecho', sans-serif;
 }

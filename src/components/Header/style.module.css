@@ -1,6 +1,7 @@
 .header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
     border-bottom: 1px solid var(--secondary-color);
     height: 60px;
@@ -14,20 +15,24 @@
 }
 
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
+    font-family: var(--font-family);
+    font-weight: 700;
+    background-color: var(--fourth-color);
+    color: var(--secondary-color);
     cursor: pointer;
+    transition: 0.2s;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
     box-shadow: var(--box-shadow);
-    color: var(--fourth-color);
-    transition: .2s;
 }
 
 .btn:hover {
-    scale: 1.2;
+    color: var(--fourth-color);
+    background-color: var(--secondary-color);
+
+}
+
+.link{
+    text-decoration: none;
 }

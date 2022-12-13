@@ -12,12 +12,25 @@ export default function NewVacationForm() {
     const handleOnChange = e => {
         const { value, name } = e.target
         setNewVacation({ ...newVacation, [name]: value })
+        console.log(newVacation);
     }
 
-    const handleFile = e => {
+    const handleFile = async e => {
         const file = e.target.files[0]
-        setNewVacation({ ...newVacation, image: file })
+        setNewVacation({ ...newVacation, image: await getBase64(file) })
     }
+
+    const getBase64 = file => {
+        return new Promise(resolve => {
+            let baseURL = "";
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                baseURL = reader.result;
+                resolve(baseURL);
+            };
+        });
+    };
 
     const handleOnSubmit = e => {
         e.preventDefault()

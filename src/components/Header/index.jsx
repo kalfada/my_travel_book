@@ -5,8 +5,10 @@ export default function Header() {
 
     return (
         <header className={style.header}>
-            <div className={style.logo} >My Travel Book</div>
-            <Link to={'/new_vacation'}>
+            <Link className={style.link} to={'/'}>
+                <div className={style.logo} >My Travel Book</div>
+            </Link>
+            <Link className={style.link} to={'/new_vacation'}>
                 <button className={style.btn} >New Vacation</button>
             </Link>
         </header>
