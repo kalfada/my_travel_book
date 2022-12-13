@@ -1,9 +1,12 @@
+import style from './style.module.css'
 import VacationCardsList from "../../components/VacationCardsList"
 
 export default function HomePage(params) {
     return (
         <>
-            <VacationCardsList />
+            <div className={style.container}>
+                <VacationCardsList />
+            </div>
         </>
     )
 }
