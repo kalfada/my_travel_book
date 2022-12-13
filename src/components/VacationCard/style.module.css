@@ -8,6 +8,12 @@
     border-radius: 10px;
     transition: .2s;
     cursor: pointer;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.2rem;
+    height: 100px;
 }
 
 .card:hover{
@@ -21,10 +27,13 @@
 }
 
 .details{
-    color: var(--fourth-color);
     font-weight: 600;
 }
 
 .bold{
     font-weight: 900;
+}
+
+.link{
+    text-decoration: none;
 }

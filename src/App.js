@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NewVacationPage from "./pages/NewVacationPage";
-import Header from './components/Header'
-import Footer from './components/Footer'
+import VacationPage from "./pages/VacationPage";
 import Layout from "./Layout";
 
 function App() {
@@ -13,6 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/new_vacation" element={<NewVacationPage />} />
+          <Route path="/vacation/:id" element={<VacationPage />} />
         </Route>
       </Routes>
     </div>

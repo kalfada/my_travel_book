@@ -1,18 +1,33 @@
 import style from './style.module.css'
 import VacationCard from "../VacationCard"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import { InfinitySpin } from 'react-loader-spinner'
+import { getVacations } from '../../functions/API'
 
 export default function VacationCardsList() {
     const [vacations, setVacations] = useState([])
+    const [isFetching, setIsFetching] = useState(false)
+
+    const fetchData = async () => {
+        setIsFetching(true)
+        setVacations(await getVacations())
+        setIsFetching(false)
+    }
 
     useEffect(() => {
-        axios.get('https://6388b351d94a7e5040a45fdf.mockapi.io/api/vacations')
-            .then(res => {
-                console.log(res.data);
-                setVacations(res.data)
-            })
-    }, [vacations.length])
+        fetchData()
+    }, [])
+
+    if (isFetching) {
+        return (
+            <div className={style.loader}>
+                <InfinitySpin
+                    width='200'
+                    color="var(--fourth-color)"
+                />
+            </div>
+        )
+    }
 
     return (
         <>

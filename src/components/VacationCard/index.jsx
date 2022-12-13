@@ -1,18 +1,15 @@
 import style from './style.module.css'
 import { toCapital } from '../../functions/common'
+import { Link } from 'react-router-dom'
 
 export default function VacationCard({ vacation }) {
 
     return (
-        <>
-            <div className={style.card}>
-                {/* <div className={style.img} style={{ backgroundImage: `url(${vacation.image})` }}></div> */}
+        <Link className={style.link} to={`/vacation/${vacation.id}`}>
+            <div className={style.card} style={{ backgroundImage: `url(${vacation.image})` }}>
                 <div className={`${style.details} ${style.bold}`} >{toCapital(vacation.cityName)}</div>
                 <div className={style.details} >{toCapital(vacation.country)}</div>
-                {/* <div className={style.details} >{Number(vacation.vacationprice)} USD</div> */}
-                {/* <div className={style.details} >{vacation.dates}</div> */}
-                {/* <button onClick={() => axios.delete(`https://6388b351d94a7e5040a45fdf.mockapi.io/api/vacations/${vacation.id}`)}>delete</button> */}
             </div>
-        </>
+        </Link>
     )
 }

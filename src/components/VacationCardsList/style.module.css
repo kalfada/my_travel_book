@@ -4,3 +4,10 @@
     grid-template-columns: repeat(4, 15vw);
     gap: 24px;
 }
+
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 160px);
+}
