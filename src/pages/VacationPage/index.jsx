@@ -1,13 +1,10 @@
 import SingleVacation from "../../components/SinglieVacation";
-import { Link } from "react-router-dom";
+import style from './style.module.css'
 
 export default function VacationPage() {
     return (
-        <>
-            <Link to={'/'}>
-                <div>Go Back</div>
-            </Link>
+        <div className={style.container}>
             <SingleVacation />
-        </>
+        </div>
     )
 }

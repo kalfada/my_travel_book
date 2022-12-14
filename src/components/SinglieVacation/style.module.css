@@ -1,11 +1,18 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     font-size: 25px;
     font-weight: 600;
     color: var(--fourth-color);
+}
+
+.card{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .image{
@@ -23,4 +30,44 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 160px);
+}
+
+.input {
+    border: none;
+    font-family: var(--font-family);
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 23px;
+    margin-top: 10px;
+    background-color: var(--secondary-color);
+    color: var(--fourth-color);
+    box-shadow: var(--box-shadow);
+    font-size: 16px;
+
+}
+
+.btn {
+    font-family: var(--font-family);
+    font-weight: 700;
+    background-color: var(--fourth-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    color: var(--fourth-color);
+    background-color: var(--secondary-color);
+
+}
+
+.country{
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--fourth-color);
+    font-size: 15px;
 }

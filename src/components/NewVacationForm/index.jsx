@@ -73,19 +73,29 @@ export default function NewVacationForm() {
                     onChange={handleOnChange}
                     required
                 />
-                <input
-                    className={style.input}
-                    type="file"
-                    name="image"
-                    onChange={handleFile}
-                    required
-                />
+                <div>
+                    <div className={style.label}>
+                        Upload Image:
+                    </div>
+                    <input
+                        className={style.input}
+                        type="file"
+                        name="image"
+                        onChange={handleFile}
+                        required
+                    />
+                </div>
             </div>
             <div className={style.subcontainer}>
-                <RangeCalendar
-                    value={dates}
-                    onChange={setDates}
-                />
+                <div>
+                    <div className={style.label}>
+                        Choose Dates:
+                    </div>
+                    <RangeCalendar
+                        value={dates}
+                        onChange={setDates}
+                    />
+                </div>
                 {isSending ?
                     <div className={style.loader}>
                         <Bars
