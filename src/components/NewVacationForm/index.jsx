@@ -1,31 +1,28 @@
 import style from './style.module.css'
-import axios from 'axios'
+import { addNewVacation } from '../../functions/API'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { RangeCalendar } from '@mantine/dates'
 import { Bars } from 'react-loader-spinner'
+import dayjs from 'dayjs'
 
 export default function NewVacationForm() {
     const navigate = useNavigate()
-    const [newVacation, setNewVacation] = useState({})
+    const [newVacation, setNewVacation] = useState({ dates: [Date.now(), Date.now()] })
+    const [dates, setDates] = useState([
+        new Date(2021, 11, 1),
+        new Date(2021, 11, 5),
+    ])
     const [isSending, setIsSending] = useState(false)
 
     const handleOnChange = e => {
         const { value, name } = e.target
         setNewVacation({ ...newVacation, [name]: value })
-        console.log(newVacation);
     }
 
     const handleFile = async e => {
         const file = e.target.files[0]
         setNewVacation({ ...newVacation, image: await getBase64(file) })
-    }
-
-    const handleDates = (e, index) => {
-        const { value } = e.target
-        let newVacationTmp = structuredClone(newVacation)
-        if (newVacationTmp.dates === undefined) newVacationTmp.dates = []
-        newVacationTmp.dates[index] = value
-        setNewVacation(structuredClone(newVacationTmp))
     }
 
     const getBase64 = file => {
@@ -40,48 +37,76 @@ export default function NewVacationForm() {
         });
     };
 
-    const handleOnSubmit = e => {
+    const handleOnSubmit = async e => {
         e.preventDefault()
         setIsSending(true)
-        axios.post(`https://6388b351d94a7e5040a45fdf.mockapi.io/api/vacations`, newVacation)
-            .then(res => {
-                console.log(res.data);
-                setIsSending(false)
-                navigate('/')
-            })
+        const reqBody = { ...newVacation, dates: dates.map(date => dayjs(date).format('YYYY-MM-DD')) }
+        await addNewVacation(reqBody)
+        setIsSending(false)
+        navigate('/')
     }
 
     return (
         <form className={style.container} onSubmit={handleOnSubmit} >
-            <input className={style.input} type="text" name="country" placeholder='Country' required onChange={handleOnChange} />
-            <input className={style.input} type="text" name="cityName" placeholder='City' required onChange={handleOnChange} />
-            <input className={style.input} type="text" name="vacationprice" placeholder='Vacation Cost' required onChange={handleOnChange} />
-            <div className={style.flex}>
-                <div className={style.container}>
-                    <label>Start Date</label>
-                    <input className={`${style.input} ${style.short_input}`} type="date" onChange={(e) => handleDates(e, 0)} />
-                </div>
-                <div className={style.container}>
-                    <label>End Date</label>
-                    <input className={`${style.input} ${style.short_input}`} type="date" onChange={(e) => handleDates(e, 1)} />
-                </div>
+            <div className={style.subcontainer}>
+                <input
+                    className={style.input}
+                    type="text"
+                    name="country"
+                    placeholder='Country'
+                    onChange={handleOnChange}
+                    required
+                />
+                <input
+                    className={style.input}
+                    type="text"
+                    name="cityName"
+                    placeholder='City'
+                    onChange={handleOnChange}
+                    required
+                />
+                <input
+                    className={style.input}
+                    type="text"
+                    name="vacationprice"
+                    placeholder='Vacation Cost'
+                    onChange={handleOnChange}
+                    required
+                />
+                <input
+                    className={style.input}
+                    type="file"
+                    name="image"
+                    onChange={handleFile}
+                    required
+                />
             </div>
-            <input type="file" name="image" onChange={handleFile} />
-            {isSending ?
-                <div className={style.loader}>
-                    <Bars
-                        height="50"
-                        width="50"
-                        color="var(--fourth-color)"
-                        ariaLabel="bars-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        visible={true}
+            <div className={style.subcontainer}>
+                <RangeCalendar
+                    value={dates}
+                    onChange={setDates}
+                />
+                {isSending ?
+                    <div className={style.loader}>
+                        <Bars
+                            height="50"
+                            width="50"
+                            color="var(--fourth-color)"
+                            ariaLabel="bars-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                    :
+                    <input
+                        className={`${style.input} ${style.btn}`}
+                        type="submit"
+                        value="Add Vacation"
+                        accept='image/jpeg'
                     />
-                </div>
-                :
-                <input className={`${style.input} ${style.btn}`} type="submit" value="Add Vacation" accept='image/jpeg' />
-            }
+                }
+            </div>
         </form>
     )
 }

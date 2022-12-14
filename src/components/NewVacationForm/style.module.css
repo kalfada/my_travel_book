@@ -1,9 +1,15 @@
 .container{
     display: flex;
-    flex-direction: column;
     align-items: center;
     font-size: 18px;
     color: var(--fourth-color);
+}
+
+.subcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .flex{
@@ -16,7 +22,7 @@
     font-family: var(--font-family);
     border-radius: 10px;
     font-weight: 700;
-    padding: 20px;
+    padding: 23px;
     margin: 10px;
     background-color: var(--secondary-color);
     color: var(--fourth-color);

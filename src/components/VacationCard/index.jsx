@@ -10,6 +10,6 @@ export default function VacationCard({ vacation }) {
                 <div className={`${style.details} ${style.bold}`} >{toCapital(vacation.cityName)}</div>
                 <div className={style.details} >{toCapital(vacation.country)}</div>
             </div>
-        </Link>
+        </Link >
     )
 }

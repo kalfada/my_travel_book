@@ -1,4 +1,5 @@
 import style from './style.module.css'
+import { toCapital } from '../../functions/common'
 import { useParams } from 'react-router-dom'
 import { getVacationById } from '../../functions/API'
 import { useEffect, useState } from 'react'
@@ -33,8 +34,8 @@ export default function SingleVacation() {
 
     return (
         <div className={style.container}>
-            <div>{vacation?.country}</div>
-            <div>{vacation?.cityName}</div>
+            <div>{toCapital(vacation?.country)}</div>
+            <div>{toCapital(vacation?.cityName)}</div>
             <div>${vacation?.vacationprice}</div>
             <div className={style.image} style={{ backgroundImage: `url(${vacation?.image})` }}></div>
         </div>

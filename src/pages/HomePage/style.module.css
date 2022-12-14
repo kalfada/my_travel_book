@@ -1,3 +1,17 @@
 .container{
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    color: var(--fourth-color);    
+    font-weight: 900;
+}
+
+.subtitle{
+    font-size: 20px;
+    font-weight: 600;
 }
