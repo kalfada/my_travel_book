@@ -13,6 +13,7 @@ export default function VacationCardsList() {
     const fetchData = async () => {
         setIsFetching(true)
         const res = await getVacations()
+        console.log(res);
         setVacations(res)
         setSearchedList(res)
         setIsFetching(false)

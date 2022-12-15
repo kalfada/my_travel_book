@@ -1,4 +1,4 @@
-import SingleVacation from "../../components/SinglieVacation";
+import SingleVacation from "../../components/SingleVacation";
 import style from './style.module.css'
 
 export default function VacationPage() {
