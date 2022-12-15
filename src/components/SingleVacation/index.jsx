@@ -51,12 +51,16 @@ export default function SingleVacation() {
                 </Link>
                 <div className={style.country} >{toCapital(vacation?.country)}</div>
                 <div className={style.city_name} >{toCapital(vacation?.cityName)}</div>
-                <div>
-                    <span>{dayjs(vacation?.dates[0]).format('DD/MM/YYYY')}</span>
-                    <span> - </span>
-                    <span>{dayjs(vacation?.dates[1]).format('DD/MM/YYYY')}</span>
-                </div>
-                <div>In this vacation you traveled for {dayjs(vacation?.dates[1]).diff(dayjs(vacation?.dates[0]), 'day')} days</div>
+                {vacation?.dates ?
+                    <div>
+                        <span>{dayjs(vacation?.dates[0]).format('DD/MM/YYYY')}</span>
+                        <span> - </span>
+                        <span>{dayjs(vacation?.dates[1]).format('DD/MM/YYYY')}</span>
+                        <div>In this vacation you traveled for {dayjs(vacation?.dates[1]).diff(dayjs(vacation?.dates[0]), 'day')} days</div>
+                    </div>
+                    :
+                    <div>You did not add dates for these vacation</div>
+                }
                 <div>In this vacation you spent ${vacation?.vacationprice}</div>
                 <div className={style.image} style={{ backgroundImage: `url(${vacation?.image})` }}></div>
                 <button
