@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/kalfada/my_travel_book/compare/0.3.0...0.3.1) (2024-02-09)
+
+
+### Bug fixes
+
+* change releaseName ([4a25338](https://github.com/kalfada/my_travel_book/commit/4a2533888d7e7adda4f838888dfed2251a2ee708))
+
 ## [0.3.0](https://github.com/kalfada/my_travel_book/compare/0.2.1...0.3.0) (2024-02-09)
 
 
