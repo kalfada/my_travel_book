@@ -1,5 +1,12 @@
 
 
+## [0.3.2](https://github.com/kalfada/my_travel_book/compare/0.3.1...0.3.2) (2024-02-09)
+
+
+### Bug fixes
+
+* test commits ([0f85fea](https://github.com/kalfada/my_travel_book/commit/0f85fea77d7c3a1a94fe584159ea477dda38ba0a))
+
 ## [0.3.1](https://github.com/kalfada/my_travel_book/compare/0.3.0...0.3.1) (2024-02-09)
 
 
