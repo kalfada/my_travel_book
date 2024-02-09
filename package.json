@@ -49,5 +49,13 @@
   },
   "devDependencies": {
     "release-it": "^17.0.3"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
