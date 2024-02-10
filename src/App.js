@@ -5,7 +5,7 @@ import VacationPage from "./pages/VacationPage";
 import Layout from "./Layout";
 
 function App() {
-  //add a comment
+
   return (
     <div className="App">
       <Routes>
